@@ -1,0 +1,28 @@
+[
+    {
+        "career": "Data Scientist",
+        "skills": [
+            "Python",
+            "SQL",
+            "Statistics",
+            "Machine Learning"
+        ]
+    },
+    {
+        "career": "ML Engineer",
+        "skills": [
+            "Python",
+            "Machine Learning",
+            "Deep Learning",
+            "Docker"
+        ]
+    },
+    {
+        "career": "Data Engineer",
+        "skills": [
+            "Python",
+            "SQL",
+            "Docker"
+        ]
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "course": "Machine Learning",
+        "prerequisite": "Python"
+    },
+    {
+        "course": "Machine Learning",
+        "prerequisite": "Statistics"
+    },
+    {
+        "course": "Deep Learning",
+        "prerequisite": "Machine Learning"
+    },
+    {
+        "course": "Kubernetes",
+        "prerequisite": "Docker"
+    }
+]
