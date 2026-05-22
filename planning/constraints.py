@@ -1,19 +1,50 @@
-import pandas as pd
+import json
 
 class ConstraintManager:
-    def __init__(self, prerequisites_path):
-        #Obtener los prerequisitos del dataset
-        return 1
+    """
+    Handles prerequisite validation.
+    """
+    def __init__(self, prerequisites_path: str):
+        """
+        Loads prerequisites dataset.
+        Args:
+            prerequisites_path (str): Path to prerequisites JSON.
+        """
+
+        with open(prerequisites_path, 'r') as file:
+            self.prerequisites = json.load(file)
     
-    def prerequisites_of(self, course_name):
-        #Obtener prerequisitos de course_name
-        return 1
+    def prerequisites_of(self, course_name : str) -> list[str]:
+        """
+        Returns prerequisites for a course.
+        Args:
+            course_name (str): Course name.
+        Returns:
+            list[str]: List of prerequisite courses.
+        """
+
+        result = []
+
+        for relation in self.prerequisites:
+            if relation['course'] == course_name:
+                result.append(relation['prerequisite'])
+        
+        return result
     
-    def can_take(self, completed_courses, course_name):
+    def can_take(self, completed_courses: set[str], course_name: str) -> bool:
+        """
+        Checks if a course can be taken.
+        Args:
+            completed_courses (set[str]): Completed courses.
+            course_name (str): Desired course.
+        Returns:
+            bool: True if prerequisites are satisfied.
+        """
+
         prerequisites = self.prerequisites_of(course_name)
 
         for prereq in prerequisites:
             if prereq not in completed_courses:
                 return False
             
-            return True
+        return True
