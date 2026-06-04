@@ -56,15 +56,25 @@ class CareerPlanner:
     
     def heuristic(self, completed: set[str], target: set[str]) -> int:
         """
-        Heuristic function for A*.
+        Admissible and consistent heuristic for A*.
+        Estimates the remaining time (in weeks) needed to acquire the
+        missing target skills. Since the model treats a target "skill"
+        as a course name, the lower bound is the sum of the durations
+        of the missing target courses that are still available.
+        Ignoring transitive prerequisites keeps h admissible (the real
+        path may need extra time to satisfy them).
         Args:
-            completed (set[str]): Completed skills.
-            target (set[str]): Goal skills.
+            completed (set[str]): Completed skills / courses.
+            target (set[str]): Goal skill set.
         Returns:
-            int: Estimated remaining cost.
+            int: Estimated remaining time in weeks.
         """
-        
-        return len(target) - len(completed)
+
+        missing = target - completed
+        if not missing:
+            return 0
+        duration_by_name = {c['name']: c['duration'] for c in self.courses}
+        return sum(duration_by_name.get(skill, 0) for skill in missing)
     
     def plan(self, initial_skills: list[str], target_career: str) -> State | None:
         """
