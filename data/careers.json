@@ -1,28 +1,98 @@
 [
-    {
-        "career": "Data Scientist",
-        "skills": [
-            "Python",
-            "SQL",
-            "Statistics",
-            "Machine Learning"
-        ]
-    },
-    {
-        "career": "ML Engineer",
-        "skills": [
-            "Python",
-            "Machine Learning",
-            "Deep Learning",
-            "Docker"
-        ]
-    },
-    {
-        "career": "Data Engineer",
-        "skills": [
-            "Python",
-            "SQL",
-            "Docker"
-        ]
-    }
+  {
+    "career": "ML Engineer",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "Deep Learning",
+      "Docker"
+    ]
+  },
+  {
+    "career": "Data Scientist",
+    "skills": [
+      "Python",
+      "SQL",
+      "Statistics",
+      "Machine Learning"
+    ]
+  },
+  {
+    "career": "Data Engineer",
+    "skills": [
+      "Python",
+      "SQL",
+      "Docker",
+      "ETL"
+    ]
+  },
+  {
+    "career": "MLOps Engineer",
+    "skills": [
+      "Python",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "MLflow"
+    ]
+  },
+  {
+    "career": "Backend Developer",
+    "skills": [
+      "Python",
+      "SQL",
+      "REST APIs",
+      "Git",
+      "Testing"
+    ]
+  },
+  {
+    "career": "Cloud Architect",
+    "skills": [
+      "AWS",
+      "Networking",
+      "Cloud Architecture",
+      "Security",
+      "Linux"
+    ]
+  },
+  {
+    "career": "Computer Vision Engineer",
+    "skills": [
+      "Python",
+      "Linear Algebra",
+      "Machine Learning",
+      "Deep Learning",
+      "Computer Vision"
+    ]
+  },
+  {
+    "career": "NLP Engineer",
+    "skills": [
+      "Python",
+      "Statistics",
+      "Machine Learning",
+      "Deep Learning",
+      "NLP"
+    ]
+  },
+  {
+    "career": "DevOps Engineer",
+    "skills": [
+      "Linux",
+      "Networking",
+      "Docker",
+      "Kubernetes",
+      "CI/CD"
+    ]
+  },
+  {
+    "career": "Data Analyst",
+    "skills": [
+      "SQL",
+      "Statistics",
+      "Pandas",
+      "Data Visualization"
+    ]
+  }
 ]

@@ -1,18 +1,146 @@
 [
-    {
-        "course": "Machine Learning",
-        "prerequisite": "Python"
-    },
-    {
-        "course": "Machine Learning",
-        "prerequisite": "Statistics"
-    },
-    {
-        "course": "Deep Learning",
-        "prerequisite": "Machine Learning"
-    },
-    {
-        "course": "Kubernetes",
-        "prerequisite": "Docker"
-    }
+  {
+    "course": "Machine Learning",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "Machine Learning",
+    "prerequisite": "Statistics"
+  },
+  {
+    "course": "Machine Learning",
+    "prerequisite": "Linear Algebra"
+  },
+  {
+    "course": "Deep Learning",
+    "prerequisite": "Machine Learning"
+  },
+  {
+    "course": "NLP",
+    "prerequisite": "Deep Learning"
+  },
+  {
+    "course": "Computer Vision",
+    "prerequisite": "Deep Learning"
+  },
+  {
+    "course": "Reinforcement Learning",
+    "prerequisite": "Machine Learning"
+  },
+  {
+    "course": "Time Series",
+    "prerequisite": "Statistics"
+  },
+  {
+    "course": "Data Visualization",
+    "prerequisite": "Pandas"
+  },
+  {
+    "course": "ETL",
+    "prerequisite": "SQL"
+  },
+  {
+    "course": "Data Warehousing",
+    "prerequisite": "SQL"
+  },
+  {
+    "course": "Data Modeling",
+    "prerequisite": "SQL"
+  },
+  {
+    "course": "Pandas",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "NumPy",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "REST APIs",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "REST APIs",
+    "prerequisite": "SQL"
+  },
+  {
+    "course": "GraphQL",
+    "prerequisite": "REST APIs"
+  },
+  {
+    "course": "Node.js",
+    "prerequisite": "TypeScript"
+  },
+  {
+    "course": "React",
+    "prerequisite": "TypeScript"
+  },
+  {
+    "course": "React",
+    "prerequisite": "HTML/CSS"
+  },
+  {
+    "course": "Docker",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "Kubernetes",
+    "prerequisite": "Docker"
+  },
+  {
+    "course": "CI/CD",
+    "prerequisite": "Git"
+  },
+  {
+    "course": "CI/CD",
+    "prerequisite": "Docker"
+  },
+  {
+    "course": "MLflow",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "Airflow",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "Airflow",
+    "prerequisite": "SQL"
+  },
+  {
+    "course": "Monitoring",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "Cloud Architecture",
+    "prerequisite": "AWS"
+  },
+  {
+    "course": "AWS",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "GCP",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "Azure",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "Security",
+    "prerequisite": "Networking"
+  },
+  {
+    "course": "Networking",
+    "prerequisite": "Linux"
+  },
+  {
+    "course": "Testing",
+    "prerequisite": "Python"
+  },
+  {
+    "course": "HTML/CSS",
+    "prerequisite": "Git"
+  }
 ]

@@ -1,0 +1,92 @@
+{
+  "categories": {
+    "Programming": ["Python", "Java", "C++", "Go", "Rust", "TypeScript", "Bash"],
+    "Data": ["SQL", "NoSQL", "Data Modeling", "ETL", "Data Warehousing", "Pandas", "NumPy", "Data Visualization"],
+    "Math": ["Statistics", "Linear Algebra", "Calculus", "Probability", "Discrete Math"],
+    "ML": ["Machine Learning", "Deep Learning", "Reinforcement Learning", "NLP", "Computer Vision", "Time Series"],
+    "MLOps": ["Docker", "Kubernetes", "MLflow", "Airflow", "CI/CD", "Monitoring"],
+    "Cloud": ["AWS", "GCP", "Azure", "Cloud Architecture"],
+    "Web": ["REST APIs", "GraphQL", "HTML/CSS", "React", "Node.js"],
+    "DevOps": ["Git", "Linux", "Networking", "Security", "Testing"]
+  },
+  "careers": [
+    {
+      "career": "ML Engineer",
+      "skills": ["Python", "Machine Learning", "Deep Learning", "Docker"]
+    },
+    {
+      "career": "Data Scientist",
+      "skills": ["Python", "SQL", "Statistics", "Machine Learning"]
+    },
+    {
+      "career": "Data Engineer",
+      "skills": ["Python", "SQL", "Docker", "ETL"]
+    },
+    {
+      "career": "MLOps Engineer",
+      "skills": ["Python", "Docker", "Kubernetes", "CI/CD", "MLflow"]
+    },
+    {
+      "career": "Backend Developer",
+      "skills": ["Python", "SQL", "REST APIs", "Git", "Testing"]
+    },
+    {
+      "career": "Cloud Architect",
+      "skills": ["AWS", "Networking", "Cloud Architecture", "Security", "Linux"]
+    },
+    {
+      "career": "Computer Vision Engineer",
+      "skills": ["Python", "Linear Algebra", "Machine Learning", "Deep Learning", "Computer Vision"]
+    },
+    {
+      "career": "NLP Engineer",
+      "skills": ["Python", "Statistics", "Machine Learning", "Deep Learning", "NLP"]
+    },
+    {
+      "career": "DevOps Engineer",
+      "skills": ["Linux", "Networking", "Docker", "Kubernetes", "CI/CD"]
+    },
+    {
+      "career": "Data Analyst",
+      "skills": ["SQL", "Statistics", "Pandas", "Data Visualization"]
+    }
+  ],
+  "prerequisite_rules": [
+    ["Machine Learning", "Python"],
+    ["Machine Learning", "Statistics"],
+    ["Machine Learning", "Linear Algebra"],
+    ["Deep Learning", "Machine Learning"],
+    ["NLP", "Deep Learning"],
+    ["Computer Vision", "Deep Learning"],
+    ["Reinforcement Learning", "Machine Learning"],
+    ["Time Series", "Statistics"],
+    ["Data Visualization", "Pandas"],
+    ["ETL", "SQL"],
+    ["Data Warehousing", "SQL"],
+    ["Data Modeling", "SQL"],
+    ["Pandas", "Python"],
+    ["NumPy", "Python"],
+    ["REST APIs", "Python"],
+    ["REST APIs", "SQL"],
+    ["GraphQL", "REST APIs"],
+    ["Node.js", "TypeScript"],
+    ["React", "TypeScript"],
+    ["React", "HTML/CSS"],
+    ["Docker", "Linux"],
+    ["Kubernetes", "Docker"],
+    ["CI/CD", "Git"],
+    ["CI/CD", "Docker"],
+    ["MLflow", "Python"],
+    ["Airflow", "Python"],
+    ["Airflow", "SQL"],
+    ["Monitoring", "Linux"],
+    ["Cloud Architecture", "AWS"],
+    ["AWS", "Linux"],
+    ["GCP", "Linux"],
+    ["Azure", "Linux"],
+    ["Security", "Networking"],
+    ["Networking", "Linux"],
+    ["Testing", "Python"],
+    ["HTML/CSS", "Git"]
+  ]
+}

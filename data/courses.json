@@ -1,51 +1,324 @@
 [
-    {
-        "id": 1,
-        "name": "Python",
-        "difficulty": 2,
-        "duration": 4,
-        "cost": 0
-    },
-    {
-        "id": 2,
-        "name": "SQL",
-        "difficulty": 2,
-        "duration": 3,
-        "cost": 0
-    },
-    {
-        "id": 3,
-        "name": "Statistics",
-        "difficulty": 3,
-        "duration": 5,
-        "cost": 20
-    },
-    {
-        "id": 4,
-        "name": "Machine Learning",
-        "difficulty": 4,
-        "duration": 8,
-        "cost": 50
-    },
-    {
-        "id": 5,
-        "name": "Deep Learning",
-        "difficulty": 5,
-        "duration": 10,
-        "cost": 80
-    },
-    {
-        "id": 6,
-        "name": "Docker",
-        "difficulty": 3,
-        "duration": 4,
-        "cost": 15
-    },
-    {
-        "id": 7,
-        "name": "Kubernetes",
-        "difficulty": 4,
-        "duration": 6,
-        "cost": 30
-    }
+  {
+    "id": 1,
+    "name": "AWS",
+    "difficulty": 2,
+    "duration": 7,
+    "cost": 21
+  },
+  {
+    "id": 2,
+    "name": "Airflow",
+    "difficulty": 2,
+    "duration": 6,
+    "cost": 21
+  },
+  {
+    "id": 3,
+    "name": "Azure",
+    "difficulty": 2,
+    "duration": 6,
+    "cost": 90
+  },
+  {
+    "id": 4,
+    "name": "Bash",
+    "difficulty": 5,
+    "duration": 10,
+    "cost": 90
+  },
+  {
+    "id": 5,
+    "name": "C++",
+    "difficulty": 4,
+    "duration": 12,
+    "cost": 95
+  },
+  {
+    "id": 6,
+    "name": "CI/CD",
+    "difficulty": 1,
+    "duration": 4,
+    "cost": 40
+  },
+  {
+    "id": 7,
+    "name": "Calculus",
+    "difficulty": 5,
+    "duration": 3,
+    "cost": 90
+  },
+  {
+    "id": 8,
+    "name": "Cloud Architecture",
+    "difficulty": 3,
+    "duration": 3,
+    "cost": 88
+  },
+  {
+    "id": 9,
+    "name": "Computer Vision",
+    "difficulty": 4,
+    "duration": 4,
+    "cost": 40
+  },
+  {
+    "id": 10,
+    "name": "Data Modeling",
+    "difficulty": 3,
+    "duration": 3,
+    "cost": 4
+  },
+  {
+    "id": 11,
+    "name": "Data Visualization",
+    "difficulty": 1,
+    "duration": 4,
+    "cost": 2
+  },
+  {
+    "id": 12,
+    "name": "Data Warehousing",
+    "difficulty": 4,
+    "duration": 9,
+    "cost": 55
+  },
+  {
+    "id": 13,
+    "name": "Deep Learning",
+    "difficulty": 4,
+    "duration": 5,
+    "cost": 65
+  },
+  {
+    "id": 14,
+    "name": "Discrete Math",
+    "difficulty": 4,
+    "duration": 2,
+    "cost": 135
+  },
+  {
+    "id": 15,
+    "name": "Docker",
+    "difficulty": 4,
+    "duration": 3,
+    "cost": 85
+  },
+  {
+    "id": 16,
+    "name": "ETL",
+    "difficulty": 3,
+    "duration": 7,
+    "cost": 112
+  },
+  {
+    "id": 17,
+    "name": "GCP",
+    "difficulty": 4,
+    "duration": 9,
+    "cost": 65
+  },
+  {
+    "id": 18,
+    "name": "Git",
+    "difficulty": 1,
+    "duration": 11,
+    "cost": 16
+  },
+  {
+    "id": 19,
+    "name": "Go",
+    "difficulty": 1,
+    "duration": 12,
+    "cost": 44
+  },
+  {
+    "id": 20,
+    "name": "GraphQL",
+    "difficulty": 5,
+    "duration": 9,
+    "cost": 114
+  },
+  {
+    "id": 21,
+    "name": "HTML/CSS",
+    "difficulty": 4,
+    "duration": 5,
+    "cost": 150
+  },
+  {
+    "id": 22,
+    "name": "Java",
+    "difficulty": 3,
+    "duration": 6,
+    "cost": 100
+  },
+  {
+    "id": 23,
+    "name": "Kubernetes",
+    "difficulty": 3,
+    "duration": 11,
+    "cost": 68
+  },
+  {
+    "id": 24,
+    "name": "Linear Algebra",
+    "difficulty": 5,
+    "duration": 11,
+    "cost": 174
+  },
+  {
+    "id": 25,
+    "name": "Linux",
+    "difficulty": 1,
+    "duration": 4,
+    "cost": 48
+  },
+  {
+    "id": 26,
+    "name": "MLflow",
+    "difficulty": 2,
+    "duration": 3,
+    "cost": 51
+  },
+  {
+    "id": 27,
+    "name": "Machine Learning",
+    "difficulty": 1,
+    "duration": 3,
+    "cost": 48
+  },
+  {
+    "id": 28,
+    "name": "Monitoring",
+    "difficulty": 3,
+    "duration": 3,
+    "cost": 96
+  },
+  {
+    "id": 29,
+    "name": "NLP",
+    "difficulty": 1,
+    "duration": 12,
+    "cost": 46
+  },
+  {
+    "id": 30,
+    "name": "Networking",
+    "difficulty": 3,
+    "duration": 2,
+    "cost": 80
+  },
+  {
+    "id": 31,
+    "name": "NoSQL",
+    "difficulty": 5,
+    "duration": 9,
+    "cost": 150
+  },
+  {
+    "id": 32,
+    "name": "Node.js",
+    "difficulty": 3,
+    "duration": 6,
+    "cost": 52
+  },
+  {
+    "id": 33,
+    "name": "NumPy",
+    "difficulty": 2,
+    "duration": 5,
+    "cost": 36
+  },
+  {
+    "id": 34,
+    "name": "Pandas",
+    "difficulty": 3,
+    "duration": 11,
+    "cost": 32
+  },
+  {
+    "id": 35,
+    "name": "Probability",
+    "difficulty": 3,
+    "duration": 7,
+    "cost": 100
+  },
+  {
+    "id": 36,
+    "name": "Python",
+    "difficulty": 3,
+    "duration": 8,
+    "cost": 120
+  },
+  {
+    "id": 37,
+    "name": "REST APIs",
+    "difficulty": 4,
+    "duration": 4,
+    "cost": 60
+  },
+  {
+    "id": 38,
+    "name": "React",
+    "difficulty": 2,
+    "duration": 8,
+    "cost": 6
+  },
+  {
+    "id": 39,
+    "name": "Reinforcement Learning",
+    "difficulty": 1,
+    "duration": 9,
+    "cost": 40
+  },
+  {
+    "id": 40,
+    "name": "Rust",
+    "difficulty": 1,
+    "duration": 3,
+    "cost": 28
+  },
+  {
+    "id": 41,
+    "name": "SQL",
+    "difficulty": 2,
+    "duration": 2,
+    "cost": 57
+  },
+  {
+    "id": 42,
+    "name": "Security",
+    "difficulty": 2,
+    "duration": 8,
+    "cost": 18
+  },
+  {
+    "id": 43,
+    "name": "Statistics",
+    "difficulty": 5,
+    "duration": 6,
+    "cost": 126
+  },
+  {
+    "id": 44,
+    "name": "Testing",
+    "difficulty": 4,
+    "duration": 8,
+    "cost": 55
+  },
+  {
+    "id": 45,
+    "name": "Time Series",
+    "difficulty": 5,
+    "duration": 10,
+    "cost": 174
+  },
+  {
+    "id": 46,
+    "name": "TypeScript",
+    "difficulty": 2,
+    "duration": 9,
+    "cost": 72
+  }
 ]
