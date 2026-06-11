@@ -1,4 +1,7 @@
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ConstraintManager:
     """
@@ -10,9 +13,12 @@ class ConstraintManager:
         Args:
             prerequisites_path (str): Path to prerequisites JSON.
         """
+        logger.debug("Loading prerequisites from %s", prerequisites_path)
 
         with open(prerequisites_path, 'r') as file:
             self.prerequisites = json.load(file)
+        
+        logger.info("ConstraintManager loaded %d prerequisite rules", len(self.prerequisites))
     
     def prerequisites_of(self, course_name : str) -> list[str]:
         """

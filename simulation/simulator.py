@@ -1,4 +1,7 @@
+import logging
 import random
+
+logger = logging.getLogger(__name__)
 
 class LearningSimulator:
 
@@ -6,10 +9,13 @@ class LearningSimulator:
         pass
 
     def simulate(self, path):
+        if not path:
+            logger.warning("Empty path provided to simulator")
+            return {'total_weeks': 0, 'abandonment_probability': 0}
+
+        logger.info("Starting stochastic simulation for %d courses", len(path))
         total_weeks = 0
         abandonment_probability = 0
-
-        print('\n===== SIMULATION =====')
 
         for course in path:
             random_factor = random.uniform(0.8,1.3)
@@ -20,14 +26,12 @@ class LearningSimulator:
             fatigue = random.uniform(0,0.15)
             abandonment_probability += fatigue
 
-            print(f'Course: {course}')
-            print(f'Estimated duration: {estimated_time} weeks')
-            print('----------------------')
+            logger.debug("Course: %s, estimated_duration: %d weeks", course, estimated_time)
 
         abandonment_probability = min(abandonment_probability,1)
 
-        print(f'Total estimated time: {total_weeks} weeks')
-        print(f'Probability of abandonment: {abandonment_probability:.2f}')
+        logger.info("Simulation completed: total_weeks=%d, abandonment_probability=%.2f",
+                     total_weeks, abandonment_probability)
 
         return {
             'total_weeks': total_weeks,
