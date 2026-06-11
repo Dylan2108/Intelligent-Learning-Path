@@ -24,17 +24,38 @@ cp .env.example .env
 
 Editar `.env` si es necesario:
 
-| Variable | Descripción | Default |
-|---|---|---|
-| `OLLAMA_HOST` | URL del servidor Ollama | `http://localhost:11434` |
-| `OLLAMA_MODEL` | Modelo a utilizar | `llama3.1:8b` |
-| `OLLAMA_TIMEOUT` | Timeout en segundos | `120` |
+| Variable           | Descripción            | Default                    |
+| ------------------ | ----------------------- | -------------------------- |
+| `OLLAMA_HOST`    | URL del servidor Ollama | `http://localhost:11434` |
+| `OLLAMA_MODEL`   | Modelo a utilizar       | `qwen3:1.7b`             |
+| `OLLAMA_TIMEOUT` | Timeout en segundos     | `120`                    |
 
 ## Ejecución
 
+### Interfaz Web (Recomendado)
+
+```bash
+# Instalar Streamlit (si no está instalado)
+.venv/bin/pip install streamlit>=1.30.0
+
+# Ejecutar la interfaz web
+.venv/bin/streamlit run app.py
+```
+
+Se abrirá una interfaz estilo ChatGPT en el navegador (`http://localhost:8501`).
+Escribe tu objetivo profesional en lenguaje natural y recibe un plan personalizado.
+
+Ejemplo de uso:
+
+```
+Quiero ser ML Engineer, ya sé Python, tengo 200 de presupuesto y 30 semanas.
+```
+
+### Línea de Comandos (CLI)
+
 ```bash
 # Descargar el modelo (si no se tiene)
-ollama pull llama3.1:8b
+ollama pull qwen3:1.7b
 
 # Ejecutar el sistema
 .venv/bin/python main.py
@@ -119,7 +140,8 @@ Los gráficos se guardan en `experiments/figures/`.
 │   ├── results.csv           # Resultados crudos
 │   └── figures/              # Figuras generadas
 ├── tests/                    # Tests unitarios
-├── main.py                   # Punto de entrada
+├── app.py                    # Interfaz web (Streamlit)
+├── main.py                   # Punto de entrada CLI
 ├── requirements.txt
 └── .env.example
 ```
