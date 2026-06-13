@@ -21,7 +21,7 @@ class GoalSchema(BaseModel):
     target_career: str = Field(..., description="Exact career name as in careers.json")
     initial_skills: list[str] = Field(
         default_factory=list,
-        description="Skills the user already has (must match course names)",
+        description="Skills the user already has (must match skill names from careers.json)",
     )
     max_budget: int | None = Field(
         default=None, description="Maximum monetary budget, or null if none"
@@ -70,7 +70,7 @@ and any constraints (time, money). Convert their message into JSON.
 
 Return ONLY a JSON object with these fields (no markdown, no comments):
 - "target_career": string. Must be one of the available careers if listed.
-- "initial_skills": list of strings. Course names the user already knows.
+- "initial_skills": list of strings. Skill names the user already has (e.g. Python, SQL).
 - "max_budget": integer or null. Maximum total cost the user can pay.
 - "max_weeks": integer or null. Maximum total weeks the user can study.
 - "notes": string. Any other relevant context in one short sentence.
