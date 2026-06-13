@@ -111,8 +111,13 @@ def _get_ga() -> GeneticAlgorithmSolver:
 def _get_greedy() -> GreedySolver:
     return GreedySolver()
 
-def _run_astar(initial: list[str], career: str) -> State | None:
-    return _get_planner().plan(initial_skills=initial, target_career=career)
+def _run_astar(initial: list[str], career: str, budget: int | None, weeks: int | None) -> State | None:
+    return _get_planner().plan(
+        initial_skills=initial,
+        target_career=career,
+        max_budget=budget,
+        max_weeks=weeks,
+    )
 
 def _run_ga(
     initial: list[str],
@@ -127,8 +132,13 @@ def _run_ga(
         max_weeks=weeks,
     )
 
-def _run_greedy(initial: list[str], career: str) -> GreedyResult | None:
-    return _get_greedy().solve(initial_skills=initial, target_career=career)
+def _run_greedy(initial: list[str], career: str, budget: int | None, weeks: int | None) -> GreedyResult | None:
+    return _get_greedy().solve(
+        initial_skills=initial,
+        target_career=career,
+        max_budget=budget,
+        max_weeks=weeks,
+    )
 
 def _run_simulation(path: list[str]) -> dict:
     return LearningSimulator().simulate(path)
@@ -219,7 +229,7 @@ def _show_llm_evaluation(ev) -> None:
 # ---------------------------------------------------------------------------
 # Process a user message
 # ---------------------------------------------------------------------------
-def _process_message(user_text: str) -> None:
+def _process_message(user_text: str, llm_eval: bool = True) -> None:
     # 1. Parse goal with LLM
     with st.spinner("Analizando tu objetivo con el LLM..."):
         try:
@@ -241,7 +251,7 @@ def _process_message(user_text: str) -> None:
 
     # 2. A* search
     with st.spinner("Ejecutando búsqueda A*..."):
-        astar = _run_astar(goal.initial_skills, goal.target_career)
+        astar = _run_astar(goal.initial_skills, goal.target_career, goal.max_budget, goal.max_weeks)
     _show_astar(astar)
 
     # 3. Genetic Algorithm
@@ -251,7 +261,7 @@ def _process_message(user_text: str) -> None:
 
     # 4. Greedy search (baseline)
     with st.spinner("Ejecutando búsqueda greedy..."):
-        greedy = _run_greedy(goal.initial_skills, goal.target_career)
+        greedy = _run_greedy(goal.initial_skills, goal.target_career, goal.max_budget, goal.max_weeks)
     _show_greedy(greedy)
 
     # 5. Simulation (on A* path if available)
@@ -261,7 +271,7 @@ def _process_message(user_text: str) -> None:
         _show_simulation(sim)
 
     # 6. LLM evaluation (on A* path if available)
-    if astar is not None:
+    if astar is not None and llm_eval:
         with st.spinner("Evaluando ruta con LLM..."):
             ev = _run_llm_evaluation(goal.target_career, astar.path)
         _show_llm_evaluation(ev)
@@ -284,6 +294,8 @@ def main() -> None:
         if st.button("Limpiar historial", use_container_width=True):
             st.session_state.messages = []
             st.rerun()
+        st.markdown("---")
+        llm_eval = st.toggle("Evaluación LLM", value=True, help="Activar para evaluar la ruta con el modelo de lenguaje")
         st.markdown("---")
         st.markdown("#### Carreras disponibles")
         for name in _career_names():
@@ -316,7 +328,7 @@ def main() -> None:
             st.markdown(user_text)
 
         # Process
-        _process_message(user_text)
+        _process_message(user_text, llm_eval=llm_eval)
 
         # Store acknowledgement
         st.session_state.messages.append({
