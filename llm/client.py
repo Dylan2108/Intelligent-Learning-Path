@@ -26,7 +26,7 @@ class OllamaClient:
     ):
         self.host = host or os.getenv("OLLAMA_HOST", "http://localhost:11434")
         self.model = model or os.getenv("OLLAMA_MODEL", "qwen3:1.7b")
-        self.timeout = timeout or int(os.getenv("OLLAMA_TIMEOUT", "120"))
+        self.timeout = timeout or int(os.getenv("OLLAMA_TIMEOUT", "300"))
         self._client = ollama.Client(host=self.host, timeout=self.timeout)
 
     def chat(
