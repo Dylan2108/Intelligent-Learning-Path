@@ -1,7 +1,7 @@
 """
-Comparison harness for the A* planner vs the Genetic Algorithm metaheuristic.
+Comparison harness for the A* planner, Genetic Algorithm, and Greedy baseline.
 
-For each (initial_skills, career) instance, runs both algorithms N times and
+For each (initial_skills, career) instance, runs all algorithms N times and
 records:
   - execution time (ms)
   - path length (number of courses)
@@ -24,6 +24,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from planning.career_planner import CareerPlanner
+from planning.greedy import GreedySolver
 from planning.metaheuristic import GeneticAlgorithmSolver
 
 logger = logging.getLogger(__name__)
@@ -74,7 +75,7 @@ def _run_single(
     try:
         if algorithm == "A*":
             result = runner.plan(initial, career)
-        else:
+        elif algorithm == "GA":
             result = runner.solve(
                 initial,
                 career,
@@ -82,6 +83,8 @@ def _run_single(
                 max_weeks=10_000,
                 seed=ga_seed,
             )
+        else:  # Greedy
+            result = runner.solve(initial, career)
     except Exception as exc:  # noqa: BLE001
         logger.error("Trial %s failed: %s", trial_label, exc)
         return RunResult(trial_label, algorithm, trial, False, 0.0, 0, 0, 0)
@@ -148,6 +151,7 @@ def run(
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     astar = CareerPlanner()
     ga = GeneticAlgorithmSolver()
+    greedy = GreedySolver()
     rows: list[RunResult] = []
     for initial, career in CAREER_INSTANCES:
         label = f"{career} | init={','.join(initial) or '∅'}"
@@ -163,6 +167,17 @@ def run(
                     label,
                     "GA",
                     ga,
+                    initial,
+                    career,
+                    trial,
+                    ga_seed=trial,
+                )
+            )
+            rows.append(
+                _run_single(
+                    label,
+                    "Greedy",
+                    greedy,
                     initial,
                     career,
                     trial,

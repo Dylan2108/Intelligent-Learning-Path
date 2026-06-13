@@ -7,6 +7,7 @@ import streamlit as st
 from llm.evaluator import PathEvaluator
 from llm.parser import GoalParser, GoalSchema
 from planning.career_planner import CareerPlanner
+from planning.greedy import GreedySolver, GreedyResult
 from planning.metaheuristic import GeneticAlgorithmSolver, GAResult
 from planning.state import State
 from simulation.simulator import LearningSimulator
@@ -106,6 +107,10 @@ def _get_planner() -> CareerPlanner:
 def _get_ga() -> GeneticAlgorithmSolver:
     return GeneticAlgorithmSolver()
 
+@st.cache_resource
+def _get_greedy() -> GreedySolver:
+    return GreedySolver()
+
 def _run_astar(initial: list[str], career: str) -> State | None:
     return _get_planner().plan(initial_skills=initial, target_career=career)
 
@@ -121,6 +126,9 @@ def _run_ga(
         max_budget=budget,
         max_weeks=weeks,
     )
+
+def _run_greedy(initial: list[str], career: str) -> GreedyResult | None:
+    return _get_greedy().solve(initial_skills=initial, target_career=career)
 
 def _run_simulation(path: list[str]) -> dict:
     return LearningSimulator().simulate(path)
@@ -167,6 +175,20 @@ def _show_ga(result: GAResult | None) -> None:
         cols[1].metric("Costo total", f"${result.total_cost}")
         cols[2].metric("Fitness", f"{result.fitness:.2f}")
         with st.expander(f"Ver ruta ({len(result.path)} cursos)"):
+            for i, c in enumerate(result.path, 1):
+                st.markdown(f"**{i}.** {c}")
+
+def _show_greedy(result: GreedyResult | None) -> None:
+    with st.chat_message("assistant"):
+        if result is None:
+            st.warning("El algoritmo greedy no encontró una solución factible.")
+            return
+        st.markdown("### Búsqueda Greedy (Baseline)")
+        cols = st.columns(3)
+        cols[0].metric("Tiempo total", f"{result.total_time} semanas")
+        cols[1].metric("Costo total", f"${result.total_cost}")
+        cols[2].metric("Cursos", result.courses_taken)
+        with st.expander(f"Ver ruta ({result.courses_taken} cursos)"):
             for i, c in enumerate(result.path, 1):
                 st.markdown(f"**{i}.** {c}")
 
@@ -227,13 +249,18 @@ def _process_message(user_text: str) -> None:
         ga = _run_ga(goal.initial_skills, goal.target_career, goal.max_budget, goal.max_weeks)
     _show_ga(ga)
 
-    # 4. Simulation (on A* path if available)
+    # 4. Greedy search (baseline)
+    with st.spinner("Ejecutando búsqueda greedy..."):
+        greedy = _run_greedy(goal.initial_skills, goal.target_career)
+    _show_greedy(greedy)
+
+    # 5. Simulation (on A* path if available)
     if astar is not None:
         with st.spinner("Simulando progreso..."):
             sim = _run_simulation(astar.path)
         _show_simulation(sim)
 
-    # 5. LLM evaluation (on A* path if available)
+    # 6. LLM evaluation (on A* path if available)
     if astar is not None:
         with st.spinner("Evaluando ruta con LLM..."):
             ev = _run_llm_evaluation(goal.target_career, astar.path)

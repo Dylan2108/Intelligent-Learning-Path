@@ -6,6 +6,7 @@ from pathlib import Path
 from llm.evaluator import PathEvaluator
 from llm.parser import GoalParser
 from planning.career_planner import CareerPlanner
+from planning.greedy import GreedySolver
 from planning.metaheuristic import GeneticAlgorithmSolver
 from simulation.simulator import LearningSimulator
 
@@ -100,14 +101,28 @@ def main() -> int:
             print(f"Total cost: {ga.total_cost} | Total time: {ga.total_time} weeks")
             print(f"Fitness: {ga.fitness:.2f} | Generations: {ga.generations}")
 
-        # --- 3. Stochastic simulation on the best (A*) path
+        # --- 3. Greedy search (baseline)
+        _print_section("GREEDY SEARCH")
+        greedy = GreedySolver().solve(
+            initial_skills=goal.initial_skills,
+            target_career=goal.target_career,
+        )
+        if greedy is None:
+            logger.warning("Greedy found no feasible solution")
+            print("Greedy did not find a feasible solution.")
+        else:
+            for i, c in enumerate(greedy.path, start=1):
+                print(f"{i}. {c}")
+            print(f"Total cost: {greedy.total_cost} | Total time: {greedy.total_time} weeks")
+
+        # --- 4. Stochastic simulation on the best (A*) path
         if astar is not None:
             _print_section("SIMULATION (A* PATH)")
             sim = LearningSimulator().simulate(astar.path)
             print(f"Estimated weeks: {sim['total_weeks']}")
             print(f"Abandonment probability: {sim['abandonment_probability']:.2f}")
 
-        # --- 4. LLM evaluation
+        # --- 5. LLM evaluation
         if astar is not None:
             logger.info("Asking LLM to evaluate the A* trajectory...")
             try:
