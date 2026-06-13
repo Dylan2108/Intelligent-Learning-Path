@@ -75,6 +75,8 @@ def main() -> int:
         astar = CareerPlanner().plan(
             initial_skills=goal.initial_skills,
             target_career=goal.target_career,
+            max_budget=goal.max_budget,
+            max_weeks=goal.max_weeks,
         )
         if astar is None:
             logger.warning("A* found no feasible trajectory")
@@ -106,6 +108,8 @@ def main() -> int:
         greedy = GreedySolver().solve(
             initial_skills=goal.initial_skills,
             target_career=goal.target_career,
+            max_budget=goal.max_budget,
+            max_weeks=goal.max_weeks,
         )
         if greedy is None:
             logger.warning("Greedy found no feasible solution")

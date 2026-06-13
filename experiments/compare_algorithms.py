@@ -73,18 +73,18 @@ def _run_single(
 ) -> RunResult:
     start = time.perf_counter()
     try:
-        if algorithm == "A*":
-            result = runner.plan(initial, career)
-        elif algorithm == "GA":
-            result = runner.solve(
-                initial,
-                career,
-                max_budget=10_000,
-                max_weeks=10_000,
-                seed=ga_seed,
-            )
-        else:  # Greedy
-            result = runner.solve(initial, career)
+            if algorithm == "A*":
+                result = runner.plan(initial, career, max_budget=10_000, max_weeks=10_000)
+            elif algorithm == "GA":
+                result = runner.solve(
+                    initial,
+                    career,
+                    max_budget=10_000,
+                    max_weeks=10_000,
+                    seed=ga_seed,
+                )
+            else:  # Greedy
+                result = runner.solve(initial, career, max_budget=10_000, max_weeks=10_000)
     except Exception as exc:  # noqa: BLE001
         logger.error("Trial %s failed: %s", trial_label, exc)
         return RunResult(trial_label, algorithm, trial, False, 0.0, 0, 0, 0)

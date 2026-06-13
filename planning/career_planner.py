@@ -58,12 +58,18 @@ class CareerPlanner:
         return sum(self._frac_min_per_skill.get(s, 0) for s in missing)
 
     def plan(
-        self, initial_skills: list[str], target_career: str
+        self,
+        initial_skills: list[str],
+        target_career: str,
+        max_budget: int | None = None,
+        max_weeks: int | None = None,
     ) -> State | None:
         logger.info(
-            "Starting A* search: career=%s, initial_skills=%s",
+            "Starting A* search: career=%s, initial_skills=%s, max_budget=%s, max_weeks=%s",
             target_career,
             initial_skills,
+            max_budget,
+            max_weeks,
         )
 
         target = self.target_skills(target_career)
@@ -111,6 +117,14 @@ class CareerPlanner:
                 if not self.constraints.can_take(current.covered_skills, course):
                     continue
 
+                new_cost = current.total_cost + course["cost"]
+                new_time = current.total_time + course["duration"]
+
+                if max_budget is not None and new_cost > max_budget:
+                    continue
+                if max_weeks is not None and new_time > max_weeks:
+                    continue
+
                 new_completed = set(current.completed_courses)
                 new_completed.add(name)
 
@@ -121,8 +135,8 @@ class CareerPlanner:
                     completed_courses=new_completed,
                     covered_skills=new_covered,
                     path=current.path + [name],
-                    total_cost=current.total_cost + course["cost"],
-                    total_time=current.total_time + course["duration"],
+                    total_cost=new_cost,
+                    total_time=new_time,
                 )
 
                 priority = new_state.total_time + self.heuristic(

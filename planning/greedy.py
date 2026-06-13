@@ -93,11 +93,15 @@ class GreedySolver:
         self,
         initial_skills: list[str],
         target_career: str,
+        max_budget: int | None = None,
+        max_weeks: int | None = None,
     ) -> GreedyResult | None:
         logger.info(
-            "Starting greedy search: career=%s, initial_skills=%s",
+            "Starting greedy search: career=%s, initial_skills=%s, max_budget=%s, max_weeks=%s",
             target_career,
             initial_skills,
+            max_budget,
+            max_weeks,
         )
 
         target = self._target_skills(target_career)
@@ -127,8 +131,20 @@ class GreedySolver:
                 )
                 return None
 
+            # Filter by budget/time constraints
+            feasible = [
+                c for c in candidates
+                if (max_budget is None or total_cost + self.cost_by_name.get(c, 0) <= max_budget)
+                and (max_weeks is None or total_time + self.duration_by_name.get(c, 0) <= max_weeks)
+            ]
+            if not feasible:
+                logger.warning(
+                    "Greedy: no feasible candidates within budget/time constraints"
+                )
+                return None
+
             best = min(
-                candidates,
+                feasible,
                 key=lambda c: self.duration_by_name.get(c, float("inf")),
             )
             course = self.courses_by_name[best]
