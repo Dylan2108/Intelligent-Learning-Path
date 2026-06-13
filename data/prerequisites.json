@@ -1,146 +1,146 @@
 [
   {
-    "course": "Machine Learning",
+    "skill": "Machine Learning",
     "prerequisite": "Python"
   },
   {
-    "course": "Machine Learning",
+    "skill": "Machine Learning",
     "prerequisite": "Statistics"
   },
   {
-    "course": "Machine Learning",
+    "skill": "Machine Learning",
     "prerequisite": "Linear Algebra"
   },
   {
-    "course": "Deep Learning",
+    "skill": "Deep Learning",
     "prerequisite": "Machine Learning"
   },
   {
-    "course": "NLP",
+    "skill": "NLP",
     "prerequisite": "Deep Learning"
   },
   {
-    "course": "Computer Vision",
+    "skill": "Computer Vision",
     "prerequisite": "Deep Learning"
   },
   {
-    "course": "Reinforcement Learning",
+    "skill": "Reinforcement Learning",
     "prerequisite": "Machine Learning"
   },
   {
-    "course": "Time Series",
+    "skill": "Time Series",
     "prerequisite": "Statistics"
   },
   {
-    "course": "Data Visualization",
+    "skill": "Data Visualization",
     "prerequisite": "Pandas"
   },
   {
-    "course": "ETL",
+    "skill": "ETL",
     "prerequisite": "SQL"
   },
   {
-    "course": "Data Warehousing",
+    "skill": "Data Warehousing",
     "prerequisite": "SQL"
   },
   {
-    "course": "Data Modeling",
+    "skill": "Data Modeling",
     "prerequisite": "SQL"
   },
   {
-    "course": "Pandas",
+    "skill": "Pandas",
     "prerequisite": "Python"
   },
   {
-    "course": "NumPy",
+    "skill": "NumPy",
     "prerequisite": "Python"
   },
   {
-    "course": "REST APIs",
+    "skill": "REST APIs",
     "prerequisite": "Python"
   },
   {
-    "course": "REST APIs",
+    "skill": "REST APIs",
     "prerequisite": "SQL"
   },
   {
-    "course": "GraphQL",
+    "skill": "GraphQL",
     "prerequisite": "REST APIs"
   },
   {
-    "course": "Node.js",
+    "skill": "Node.js",
     "prerequisite": "TypeScript"
   },
   {
-    "course": "React",
+    "skill": "React",
     "prerequisite": "TypeScript"
   },
   {
-    "course": "React",
+    "skill": "React",
     "prerequisite": "HTML/CSS"
   },
   {
-    "course": "Docker",
+    "skill": "Docker",
     "prerequisite": "Linux"
   },
   {
-    "course": "Kubernetes",
+    "skill": "Kubernetes",
     "prerequisite": "Docker"
   },
   {
-    "course": "CI/CD",
+    "skill": "CI/CD",
     "prerequisite": "Git"
   },
   {
-    "course": "CI/CD",
+    "skill": "CI/CD",
     "prerequisite": "Docker"
   },
   {
-    "course": "MLflow",
+    "skill": "MLflow",
     "prerequisite": "Python"
   },
   {
-    "course": "Airflow",
+    "skill": "Airflow",
     "prerequisite": "Python"
   },
   {
-    "course": "Airflow",
+    "skill": "Airflow",
     "prerequisite": "SQL"
   },
   {
-    "course": "Monitoring",
+    "skill": "Monitoring",
     "prerequisite": "Linux"
   },
   {
-    "course": "Cloud Architecture",
+    "skill": "Cloud Architecture",
     "prerequisite": "AWS"
   },
   {
-    "course": "AWS",
+    "skill": "AWS",
     "prerequisite": "Linux"
   },
   {
-    "course": "GCP",
+    "skill": "GCP",
     "prerequisite": "Linux"
   },
   {
-    "course": "Azure",
+    "skill": "Azure",
     "prerequisite": "Linux"
   },
   {
-    "course": "Security",
+    "skill": "Security",
     "prerequisite": "Networking"
   },
   {
-    "course": "Networking",
+    "skill": "Networking",
     "prerequisite": "Linux"
   },
   {
-    "course": "Testing",
+    "skill": "Testing",
     "prerequisite": "Python"
   },
   {
-    "course": "HTML/CSS",
+    "skill": "HTML/CSS",
     "prerequisite": "Git"
   }
 ]

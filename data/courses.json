@@ -1,324 +1,572 @@
 [
   {
     "id": 1,
-    "name": "AWS",
-    "difficulty": 2,
-    "duration": 7,
-    "cost": 21
+    "name": "AWS (Intro)",
+    "duration": 4,
+    "cost": 30,
+    "difficulty": 1,
+    "teaches": [
+      "AWS"
+    ]
   },
   {
     "id": 2,
-    "name": "Airflow",
-    "difficulty": 2,
-    "duration": 6,
-    "cost": 21
+    "name": "Airflow (Intro)",
+    "duration": 4,
+    "cost": 28,
+    "difficulty": 1,
+    "teaches": [
+      "Airflow"
+    ]
   },
   {
     "id": 3,
-    "name": "Azure",
+    "name": "Azure (Intro)",
+    "duration": 4,
+    "cost": 47,
     "difficulty": 2,
-    "duration": 6,
-    "cost": 90
+    "teaches": [
+      "Azure"
+    ]
   },
   {
     "id": 4,
-    "name": "Bash",
-    "difficulty": 5,
-    "duration": 10,
-    "cost": 90
+    "name": "Bash (Intro)",
+    "duration": 6,
+    "cost": 32,
+    "difficulty": 3,
+    "teaches": [
+      "Bash"
+    ]
   },
   {
     "id": 5,
-    "name": "C++",
-    "difficulty": 4,
-    "duration": 12,
-    "cost": 95
+    "name": "C++ (Intro)",
+    "duration": 3,
+    "cost": 50,
+    "difficulty": 1,
+    "teaches": [
+      "C++"
+    ]
   },
   {
     "id": 6,
-    "name": "CI/CD",
-    "difficulty": 1,
-    "duration": 4,
-    "cost": 40
+    "name": "CI/CD (Intro)",
+    "duration": 3,
+    "cost": 35,
+    "difficulty": 2,
+    "teaches": [
+      "CI/CD"
+    ]
   },
   {
     "id": 7,
-    "name": "Calculus",
-    "difficulty": 5,
+    "name": "Calculus (Intro)",
     "duration": 3,
-    "cost": 90
+    "cost": 42,
+    "difficulty": 2,
+    "teaches": [
+      "Calculus"
+    ]
   },
   {
     "id": 8,
-    "name": "Cloud Architecture",
-    "difficulty": 3,
-    "duration": 3,
-    "cost": 88
+    "name": "Cloud Architecture (Intro)",
+    "duration": 4,
+    "cost": 28,
+    "difficulty": 2,
+    "teaches": [
+      "Cloud Architecture"
+    ]
   },
   {
     "id": 9,
-    "name": "Computer Vision",
-    "difficulty": 4,
-    "duration": 4,
-    "cost": 40
+    "name": "Computer Vision (Intro)",
+    "duration": 3,
+    "cost": 21,
+    "difficulty": 1,
+    "teaches": [
+      "Computer Vision"
+    ]
   },
   {
     "id": 10,
-    "name": "Data Modeling",
-    "difficulty": 3,
-    "duration": 3,
-    "cost": 4
+    "name": "Data Modeling (Intro)",
+    "duration": 4,
+    "cost": 21,
+    "difficulty": 2,
+    "teaches": [
+      "Data Modeling"
+    ]
   },
   {
     "id": 11,
-    "name": "Data Visualization",
-    "difficulty": 1,
-    "duration": 4,
-    "cost": 2
+    "name": "Data Visualization (Intro)",
+    "duration": 6,
+    "cost": 31,
+    "difficulty": 2,
+    "teaches": [
+      "Data Visualization"
+    ]
   },
   {
     "id": 12,
-    "name": "Data Warehousing",
-    "difficulty": 4,
-    "duration": 9,
-    "cost": 55
+    "name": "Data Warehousing (Intro)",
+    "duration": 4,
+    "cost": 33,
+    "difficulty": 3,
+    "teaches": [
+      "Data Warehousing"
+    ]
   },
   {
     "id": 13,
-    "name": "Deep Learning",
-    "difficulty": 4,
-    "duration": 5,
-    "cost": 65
+    "name": "Deep Learning (Intro)",
+    "duration": 6,
+    "cost": 47,
+    "difficulty": 1,
+    "teaches": [
+      "Deep Learning"
+    ]
   },
   {
     "id": 14,
-    "name": "Discrete Math",
-    "difficulty": 4,
-    "duration": 2,
-    "cost": 135
+    "name": "Discrete Math (Intro)",
+    "duration": 6,
+    "cost": 23,
+    "difficulty": 3,
+    "teaches": [
+      "Discrete Math"
+    ]
   },
   {
     "id": 15,
-    "name": "Docker",
-    "difficulty": 4,
-    "duration": 3,
-    "cost": 85
+    "name": "Docker (Intro)",
+    "duration": 5,
+    "cost": 30,
+    "difficulty": 2,
+    "teaches": [
+      "Docker"
+    ]
   },
   {
     "id": 16,
-    "name": "ETL",
-    "difficulty": 3,
-    "duration": 7,
-    "cost": 112
+    "name": "ETL (Intro)",
+    "duration": 6,
+    "cost": 33,
+    "difficulty": 1,
+    "teaches": [
+      "ETL"
+    ]
   },
   {
     "id": 17,
-    "name": "GCP",
-    "difficulty": 4,
-    "duration": 9,
-    "cost": 65
+    "name": "GCP (Intro)",
+    "duration": 5,
+    "cost": 21,
+    "difficulty": 3,
+    "teaches": [
+      "GCP"
+    ]
   },
   {
     "id": 18,
-    "name": "Git",
-    "difficulty": 1,
-    "duration": 11,
-    "cost": 16
+    "name": "Git (Intro)",
+    "duration": 6,
+    "cost": 39,
+    "difficulty": 2,
+    "teaches": [
+      "Git"
+    ]
   },
   {
     "id": 19,
-    "name": "Go",
-    "difficulty": 1,
-    "duration": 12,
-    "cost": 44
+    "name": "Go (Intro)",
+    "duration": 4,
+    "cost": 50,
+    "difficulty": 2,
+    "teaches": [
+      "Go"
+    ]
   },
   {
     "id": 20,
-    "name": "GraphQL",
-    "difficulty": 5,
-    "duration": 9,
-    "cost": 114
+    "name": "GraphQL (Intro)",
+    "duration": 5,
+    "cost": 45,
+    "difficulty": 2,
+    "teaches": [
+      "GraphQL"
+    ]
   },
   {
     "id": 21,
-    "name": "HTML/CSS",
-    "difficulty": 4,
-    "duration": 5,
-    "cost": 150
+    "name": "HTML/CSS (Intro)",
+    "duration": 3,
+    "cost": 24,
+    "difficulty": 3,
+    "teaches": [
+      "HTML/CSS"
+    ]
   },
   {
     "id": 22,
-    "name": "Java",
-    "difficulty": 3,
-    "duration": 6,
-    "cost": 100
+    "name": "Java (Intro)",
+    "duration": 4,
+    "cost": 46,
+    "difficulty": 1,
+    "teaches": [
+      "Java"
+    ]
   },
   {
     "id": 23,
-    "name": "Kubernetes",
-    "difficulty": 3,
-    "duration": 11,
-    "cost": 68
+    "name": "Kubernetes (Intro)",
+    "duration": 3,
+    "cost": 22,
+    "difficulty": 2,
+    "teaches": [
+      "Kubernetes"
+    ]
   },
   {
     "id": 24,
-    "name": "Linear Algebra",
-    "difficulty": 5,
-    "duration": 11,
-    "cost": 174
+    "name": "Linear Algebra (Intro)",
+    "duration": 3,
+    "cost": 44,
+    "difficulty": 1,
+    "teaches": [
+      "Linear Algebra"
+    ]
   },
   {
     "id": 25,
-    "name": "Linux",
+    "name": "Linux (Intro)",
+    "duration": 5,
+    "cost": 42,
     "difficulty": 1,
-    "duration": 4,
-    "cost": 48
+    "teaches": [
+      "Linux"
+    ]
   },
   {
     "id": 26,
-    "name": "MLflow",
+    "name": "MLflow (Intro)",
+    "duration": 6,
+    "cost": 45,
     "difficulty": 2,
-    "duration": 3,
-    "cost": 51
+    "teaches": [
+      "MLflow"
+    ]
   },
   {
     "id": 27,
-    "name": "Machine Learning",
-    "difficulty": 1,
-    "duration": 3,
-    "cost": 48
+    "name": "Machine Learning (Intro)",
+    "duration": 5,
+    "cost": 33,
+    "difficulty": 3,
+    "teaches": [
+      "Machine Learning"
+    ]
   },
   {
     "id": 28,
-    "name": "Monitoring",
-    "difficulty": 3,
-    "duration": 3,
-    "cost": 96
+    "name": "Monitoring (Intro)",
+    "duration": 4,
+    "cost": 49,
+    "difficulty": 1,
+    "teaches": [
+      "Monitoring"
+    ]
   },
   {
     "id": 29,
-    "name": "NLP",
-    "difficulty": 1,
-    "duration": 12,
-    "cost": 46
+    "name": "NLP (Intro)",
+    "duration": 6,
+    "cost": 42,
+    "difficulty": 2,
+    "teaches": [
+      "NLP"
+    ]
   },
   {
     "id": 30,
-    "name": "Networking",
-    "difficulty": 3,
-    "duration": 2,
-    "cost": 80
+    "name": "Networking (Intro)",
+    "duration": 5,
+    "cost": 41,
+    "difficulty": 2,
+    "teaches": [
+      "Networking"
+    ]
   },
   {
     "id": 31,
-    "name": "NoSQL",
-    "difficulty": 5,
-    "duration": 9,
-    "cost": 150
+    "name": "NoSQL (Intro)",
+    "duration": 5,
+    "cost": 45,
+    "difficulty": 2,
+    "teaches": [
+      "NoSQL"
+    ]
   },
   {
     "id": 32,
-    "name": "Node.js",
-    "difficulty": 3,
+    "name": "Node.js (Intro)",
     "duration": 6,
-    "cost": 52
+    "cost": 50,
+    "difficulty": 2,
+    "teaches": [
+      "Node.js"
+    ]
   },
   {
     "id": 33,
-    "name": "NumPy",
-    "difficulty": 2,
-    "duration": 5,
-    "cost": 36
+    "name": "NumPy (Intro)",
+    "duration": 4,
+    "cost": 32,
+    "difficulty": 1,
+    "teaches": [
+      "NumPy"
+    ]
   },
   {
     "id": 34,
-    "name": "Pandas",
-    "difficulty": 3,
-    "duration": 11,
-    "cost": 32
+    "name": "Pandas (Intro)",
+    "duration": 6,
+    "cost": 22,
+    "difficulty": 1,
+    "teaches": [
+      "Pandas"
+    ]
   },
   {
     "id": 35,
-    "name": "Probability",
-    "difficulty": 3,
-    "duration": 7,
-    "cost": 100
+    "name": "Probability (Intro)",
+    "duration": 6,
+    "cost": 40,
+    "difficulty": 1,
+    "teaches": [
+      "Probability"
+    ]
   },
   {
     "id": 36,
-    "name": "Python",
+    "name": "Python (Intro)",
+    "duration": 3,
+    "cost": 34,
     "difficulty": 3,
-    "duration": 8,
-    "cost": 120
+    "teaches": [
+      "Python"
+    ]
   },
   {
     "id": 37,
-    "name": "REST APIs",
-    "difficulty": 4,
+    "name": "REST APIs (Intro)",
     "duration": 4,
-    "cost": 60
+    "cost": 20,
+    "difficulty": 3,
+    "teaches": [
+      "REST APIs"
+    ]
   },
   {
     "id": 38,
-    "name": "React",
-    "difficulty": 2,
-    "duration": 8,
-    "cost": 6
+    "name": "React (Intro)",
+    "duration": 4,
+    "cost": 32,
+    "difficulty": 1,
+    "teaches": [
+      "React"
+    ]
   },
   {
     "id": 39,
-    "name": "Reinforcement Learning",
-    "difficulty": 1,
-    "duration": 9,
-    "cost": 40
+    "name": "Reinforcement Learning (Intro)",
+    "duration": 5,
+    "cost": 41,
+    "difficulty": 3,
+    "teaches": [
+      "Reinforcement Learning"
+    ]
   },
   {
     "id": 40,
-    "name": "Rust",
-    "difficulty": 1,
-    "duration": 3,
-    "cost": 28
+    "name": "Rust (Intro)",
+    "duration": 6,
+    "cost": 33,
+    "difficulty": 2,
+    "teaches": [
+      "Rust"
+    ]
   },
   {
     "id": 41,
-    "name": "SQL",
+    "name": "SQL (Intro)",
+    "duration": 4,
+    "cost": 49,
     "difficulty": 2,
-    "duration": 2,
-    "cost": 57
+    "teaches": [
+      "SQL"
+    ]
   },
   {
     "id": 42,
-    "name": "Security",
-    "difficulty": 2,
-    "duration": 8,
-    "cost": 18
+    "name": "Security (Intro)",
+    "duration": 5,
+    "cost": 49,
+    "difficulty": 3,
+    "teaches": [
+      "Security"
+    ]
   },
   {
     "id": 43,
-    "name": "Statistics",
-    "difficulty": 5,
+    "name": "Statistics (Intro)",
     "duration": 6,
-    "cost": 126
+    "cost": 20,
+    "difficulty": 3,
+    "teaches": [
+      "Statistics"
+    ]
   },
   {
     "id": 44,
-    "name": "Testing",
-    "difficulty": 4,
-    "duration": 8,
-    "cost": 55
+    "name": "Testing (Intro)",
+    "duration": 3,
+    "cost": 36,
+    "difficulty": 3,
+    "teaches": [
+      "Testing"
+    ]
   },
   {
     "id": 45,
-    "name": "Time Series",
-    "difficulty": 5,
-    "duration": 10,
-    "cost": 174
+    "name": "Time Series (Intro)",
+    "duration": 3,
+    "cost": 40,
+    "difficulty": 3,
+    "teaches": [
+      "Time Series"
+    ]
   },
   {
     "id": 46,
-    "name": "TypeScript",
+    "name": "TypeScript (Intro)",
+    "duration": 4,
+    "cost": 23,
+    "difficulty": 3,
+    "teaches": [
+      "TypeScript"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Python for Data Analysis",
+    "duration": 6,
+    "cost": 36,
     "difficulty": 2,
-    "duration": 9,
-    "cost": 72
+    "teaches": [
+      "Python",
+      "Pandas"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Scientific Computing with Python",
+    "duration": 4,
+    "cost": 28,
+    "difficulty": 2,
+    "teaches": [
+      "Python",
+      "NumPy"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Machine Learning with Python",
+    "duration": 5,
+    "cost": 30,
+    "difficulty": 2,
+    "teaches": [
+      "Python",
+      "Machine Learning"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Data Pipelines with SQL",
+    "duration": 7,
+    "cost": 35,
+    "difficulty": 3,
+    "teaches": [
+      "SQL",
+      "ETL"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Container Orchestration",
+    "duration": 5,
+    "cost": 45,
+    "difficulty": 3,
+    "teaches": [
+      "Docker",
+      "Kubernetes"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Secure Linux Administration",
+    "duration": 7,
+    "cost": 56,
+    "difficulty": 3,
+    "teaches": [
+      "Linux",
+      "Security"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Frontend Web Development",
+    "duration": 4,
+    "cost": 32,
+    "difficulty": 2,
+    "teaches": [
+      "HTML/CSS",
+      "React"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Statistical Methods",
+    "duration": 8,
+    "cost": 72,
+    "difficulty": 4,
+    "teaches": [
+      "Statistics",
+      "Probability"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Computer Vision with DL",
+    "duration": 6,
+    "cost": 54,
+    "difficulty": 3,
+    "teaches": [
+      "Deep Learning",
+      "Computer Vision"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "NLP with Deep Learning",
+    "duration": 8,
+    "cost": 64,
+    "difficulty": 4,
+    "teaches": [
+      "Deep Learning",
+      "NLP"
+    ]
   }
 ]

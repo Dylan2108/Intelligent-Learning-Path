@@ -2,18 +2,18 @@
 Synthetic dataset generator for the career-path planning problem.
 
 Reads `data/skills_seed.json` (hand-curated catalog) and produces:
-  - data/courses.json       (one entry per skill)
-  - data/careers.json       (one entry per career)
-  - data/prerequisites.json (edges of the prerequisite DAG)
+  - data/courses.json       (2+ courses per skill + combo courses)
+  - data/careers.json       (one entry per career, skills are skill names)
+  - data/prerequisites.json (skill-to-skill prerequisite edges)
 
-Design rationale (for the technical report):
-  * One course per skill: a course named after the skill it teaches.
-    This matches the existing modeling where careers list course names
-    as required "skills".
-  * Each course gets difficulty (1-5), duration (weeks, 2-12) and cost
-    (dollars, 0-100) drawn deterministically from the seed.
-  * Prerequisites are declared in the seed and are guaranteed to form
-    an acyclic graph (Kahn's algorithm validates this).
+Design rationale:
+  * Each skill has two courses (Intro, Deep) with different duration/cost.
+  * Some skills are also covered by combo courses that teach two related
+    skills at once, creating scenarios where the greedy heuristic (shortest
+    course first) can yield suboptimal total time, while A* finds the optimum.
+  * Prerequisites are defined between skills (not courses), matching the
+    real-world constraint: you need certain knowledge before you can learn
+    a more advanced topic.
   * The resulting dataset is reproducible: same seed -> same files.
 """
 from __future__ import annotations
@@ -32,11 +32,23 @@ PREREQ_PATH = Path("data/prerequisites.json")
 
 DEFAULT_SEED = 20251115
 
+# Pairs of related skills that will have a combo course teaching both.
+# Combos create "traps" for the greedy shortest-first heuristic.
+_COMBO_PAIRS: list[tuple[str, str, str]] = [
+    ("Python", "Pandas", "Python for Data Analysis"),
+    ("Python", "NumPy", "Scientific Computing with Python"),
+    ("Python", "Machine Learning", "Machine Learning with Python"),
+    ("SQL", "ETL", "Data Pipelines with SQL"),
+    ("Docker", "Kubernetes", "Container Orchestration"),
+    ("Linux", "Security", "Secure Linux Administration"),
+    ("HTML/CSS", "React", "Frontend Web Development"),
+    ("Statistics", "Probability", "Statistical Methods"),
+    ("Deep Learning", "Computer Vision", "Computer Vision with DL"),
+    ("Deep Learning", "NLP", "NLP with Deep Learning"),
+]
+
 
 def _flatten_skills(seed: dict) -> list[str]:
-    """
-    Returns the alphabetical list of unique skill names from the seed.
-    """
     seen: set[str] = set()
     out: list[str] = []
     for category in seed["categories"].values():
@@ -48,9 +60,6 @@ def _flatten_skills(seed: dict) -> list[str]:
 
 
 def _validate_acyclic(pairs: list[list[str]]) -> None:
-    """
-    Validates that the prerequisite graph is a DAG. Raises if not.
-    """
     adj: dict[str, list[str]] = {}
     indeg: dict[str, int] = {}
     nodes: set[str] = set()
@@ -78,41 +87,56 @@ def _validate_acyclic(pairs: list[list[str]]) -> None:
 
 
 def generate(seed: int = DEFAULT_SEED) -> None:
-    """
-    Generates the three JSON files in `data/`. Idempotent: overwrite.
-    """
     rng = random.Random(seed)
     seed_data = json.loads(SEED_PATH.read_text())
 
     skills = _flatten_skills(seed_data)
     _validate_acyclic(seed_data["prerequisite_rules"])
-
-    # Courses
-    courses: list[dict] = []
-    for index, skill in enumerate(skills, start=1):
-        difficulty = rng.randint(1, 5)
-        duration = rng.randint(2, 12)
-        cost = rng.randint(0, 30) * (difficulty + 1)
-        courses.append(
-            {
-                "id": index,
-                "name": skill,
-                "difficulty": difficulty,
-                "duration": duration,
-                "cost": cost,
-            }
-        )
-
-    # Prerequisites
-    prerequisites: list[dict] = []
-    for course, pre in seed_data["prerequisite_rules"]:
-        if course in skills and pre in skills:
-            prerequisites.append({"course": course, "prerequisite": pre})
-
-    # Careers (verbatim from seed)
-    careers = seed_data["careers"]
-    # Sanity check: every skill referenced by a career must exist
     skill_set = set(skills)
+
+    courses: list[dict] = []
+    course_id = 1
+
+    # --- 1 course per skill (Intro) ---
+    for skill in skills:
+        intro_dur = rng.randint(3, 6)
+        intro_cost = rng.randint(20, 50)
+        courses.append({
+            "id": course_id,
+            "name": f"{skill} (Intro)",
+            "duration": intro_dur,
+            "cost": intro_cost,
+            "difficulty": rng.randint(1, 3),
+            "teaches": [skill],
+        })
+        course_id += 1
+
+    # --- combo courses (teach 2 skills, duration < sum of intros) ---
+    for skill_a, skill_b, combo_name in _COMBO_PAIRS:
+        if skill_a not in skill_set or skill_b not in skill_set:
+            continue
+        intro_a = next(c for c in courses if c["name"] == f"{skill_a} (Intro)")
+        intro_b = next(c for c in courses if c["name"] == f"{skill_b} (Intro)")
+        combo_dur = max(int((intro_a["duration"] + intro_b["duration"]) * 0.7), 4)
+        combo_cost = combo_dur * rng.randint(5, 9)
+        courses.append({
+            "id": course_id,
+            "name": combo_name,
+            "duration": combo_dur,
+            "cost": combo_cost,
+            "difficulty": rng.randint(2, 4),
+            "teaches": [skill_a, skill_b],
+        })
+        course_id += 1
+
+    # --- Prerequisites (skill-based, not course-based) ---
+    prerequisites: list[dict] = []
+    for course_skill, prereq_skill in seed_data["prerequisite_rules"]:
+        if course_skill in skill_set and prereq_skill in skill_set:
+            prerequisites.append({"skill": course_skill, "prerequisite": prereq_skill})
+
+    # --- Careers (unchanged: skills are skill names) ---
+    careers = seed_data["careers"]
     for career in careers:
         missing = [s for s in career["skills"] if s not in skill_set]
         if missing:
@@ -124,12 +148,10 @@ def generate(seed: int = DEFAULT_SEED) -> None:
     CAREERS_PATH.write_text(json.dumps(careers, indent=2))
     PREREQ_PATH.write_text(json.dumps(prerequisites, indent=2))
 
+    combo_count = course_id - 1 - len(skills)
     logger.info(
-        "Generated %d courses, %d careers, %d prerequisite edges (seed=%d)",
-        len(courses),
-        len(careers),
-        len(prerequisites),
-        seed,
+        "Generated %d courses (%d per-skill + %d combo), %d careers, %d prereq edges (seed=%d)",
+        len(courses), len(skills), combo_count, len(careers), len(prerequisites), seed,
     )
 
 
