@@ -141,7 +141,9 @@ def _run_greedy(initial: list[str], career: str, budget: int | None, weeks: int 
     )
 
 def _run_simulation(path: list[str]) -> dict:
-    return LearningSimulator().simulate(path)
+    courses_list = _load_courses()
+    courses_dict = {c["name"]: c for c in courses_list}
+    return LearningSimulator(courses_dict).simulate(path)
 
 def _run_llm_evaluation(career: str, path: list[str]):
     try:

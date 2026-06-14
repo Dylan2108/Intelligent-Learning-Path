@@ -122,7 +122,9 @@ def main() -> int:
         # --- 4. Stochastic simulation on the best (A*) path
         if astar is not None:
             _print_section("SIMULATION (A* PATH)")
-            sim = LearningSimulator().simulate(astar.path)
+            courses_list = json.loads(Path("data/courses.json").read_text())
+            courses_dict = {c["name"]: c for c in courses_list}
+            sim = LearningSimulator(courses_dict).simulate(astar.path)
             print(f"Estimated weeks: {sim['total_weeks']}")
             print(f"Abandonment probability: {sim['abandonment_probability']:.2f}")
 
